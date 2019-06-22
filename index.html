@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myNav</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="//at.alicdn.com/t/font_1255467_c8e0omgrdvw.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+
+<body>
+    <!-- 搜索框 -->
+    <header>
+        <div class="inputBox">
+            <i>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-icon_baidulogo"></use>
+                </svg>
+            </i>
+            <input type="text" placeholder="在百度中搜索，或输入一个网址">
+        </div>
+        <div class="button">
+            <button>搜索</button>
+            <div class="shadow"></div>
+        </div>
+    </header>
+    <!-- end -->
+    <!-- 导航 -->
+    <main id="mainInner">
+    </main>
+    <!-- end -->
+    <footer>
+        @qiang.tian
+    </footer>
+    <script>
+        let nav = ['设计网站', '前端开发', '其他']
+        let design = ["Dribbble", "Behance", "UI中国", "站酷", "优设网", "花瓣网"]
+        let website = {
+            'Dribbble': 'dribbble.com',
+            'Behance': 'www.behance.net',
+            'UI中国': 'www.ui.cn',
+            '站酷': 'www.zcool.com.cn',
+            '优设网': 'www.uisdc.com',
+            '花瓣网': 'huaban.com'
+        }
+        let navText = {
+            'Dribbble': '设计师作品分享平台，个人作品交流与分享',
+            'Behance': 'Adobe旗下的设计师交流平台，来自世界各地的设计师在这里分享自己的作品',
+            'UI中国': '图形交互与界面设计交流、作品展示、学习平台',
+            '站酷': '设计师交流平台，分享与学习的好去处',
+            '优设网': '国内优秀的设计师学习平台',
+            '花瓣网': '设计师寻找灵感的天堂'
+        }
+        let logo = {
+            'Dribbble': '/images/Dribbble.png',
+            'Behance': '/images/Behance.svg',
+            'UI中国': '/images/UI中国.png',
+            '站酷': '/images/站酷.jpeg',
+            '优设网': '/images/优设.png',
+            '花瓣网': '/images/花瓣.jpg',
+        }
+        let keyboard = ['D', 'B', 'U', 'Z', 'S', 'H']
+        let kbdWebsite = {
+            'd': 'dribbble.com',
+            'b': 'www.behance.net',
+            'u': 'www.ui.cn',
+            'z': 'www.zcool.com.cn',
+            's': 'www.uisdc.com',
+            'h': 'huaban.com'
+        }
+
+        index2 = 0
+
+        while (index2 < nav.length) {
+
+            div = document.createElement('div')
+            titleBox = document.createElement('div')
+            innerBox = document.createElement("div")
+            mainInner.appendChild(div)
+            div.appendChild(titleBox)
+            div.appendChild(innerBox)
+            div.className = nav[index2]
+            titleBox.className = "title"
+            titleInner = document.createElement('h1')
+            titleBox.appendChild(titleInner)
+            titleInner.textContent = nav[index2]
+            innerBox.className = 'inner clearfix'
+            index2 = index2 + 1
+
+            index = 0
+            while (index < design.length) {
+                innerMain = document.createElement('div')
+                kbd = document.createElement('kbd')
+                img = document.createElement('img')
+                text = document.createElement('div')
+                h1 = document.createElement('h1')
+                h2 = document.createElement('h2')
+                a = document.createElement('a')
+                text.className = "text"
+                innerBox.appendChild(a)
+                a.appendChild(innerMain)
+                innerMain.appendChild(kbd)
+                innerMain.appendChild(img)
+                innerMain.appendChild(text)
+                text.appendChild(h1)
+                text.appendChild(h2)
+                h2inner = design[index]
+                h1.textContent = design[index]
+                h2.textContent = navText[h2inner]
+                kbd.textContent = keyboard[index]
+                innerMain.className = 'nav'
+                img.src = logo[h2inner]
+                a.href = 'http://' + website[h2inner]
+                a.target = '_blank'
+                index = index + 1
+            }
+
+        }
+        document.onkeypress = function(onkeypress) {
+            key = onkeypress['key']
+            console.log(key)
+            console.log(kbdWebsite[key])
+            window.open('http://' + kbdWebsite[key])
+        }
+    </script>
+</body>
+
+</html>
