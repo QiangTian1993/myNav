@@ -34,7 +34,7 @@
  let otherWebsite = {
      'bilibili': 'bilibili.com',
      '腾讯视频': 'v.qq.com',
-     '爱奇艺': 'aiqiyi.com',
+     '爱奇艺': 'www.aiqiyi.com',
      '喜马拉雅': 'ximalaya.com',
      '懒人听书': 'lrts.me',
      '荔枝FM': 'lizhi.fm'
@@ -112,7 +112,7 @@
  let otherkbdWebsite = {
      'cb': 'bilibili.com',
      'ct': 'v.qq.com',
-     'a': 'aiqiyi.com',
+     'a': 'www.aiqiyi.com',
      'cx': 'ximalaya.com',
      'cl': 'www.lrts.me',
      'al': 'lizhi.fm'
