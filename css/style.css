@@ -118,11 +118,23 @@ main h1 {
     display: inline-block;
 }
 
+@keyframes load {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 100;
+    }
+}
+
 main>div {
     padding: 0 20px;
     background: #fff;
     border-radius: 4px;
     margin-bottom: 20px;
+    animation: load 0.5s linear;
 }
 
 main .inner {
@@ -183,8 +195,9 @@ main .nav>img {
 main .text {
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
+    justify-content: space-between;
     height: 40px;
+    flex-direction: column;
 }
 
 main .nav h1 {
@@ -198,9 +211,9 @@ main .nav h2 {
     color: #999;
     font-weight: normal;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
     width: 141px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 main .nav>kbd {
