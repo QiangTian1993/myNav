@@ -200,6 +200,7 @@ main .nav h2 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    width: 141px;
 }
 
 main .nav>kbd {
