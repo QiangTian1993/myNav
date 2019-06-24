@@ -20,7 +20,7 @@
                     <use xlink:href="#icon-icon_baidulogo"></use>
                 </svg>
             </i>
-            <input type="text" id="input" placeholder="在百度中搜索，或输入一个网址" value="">
+            <input type="text" id="input" aceholder="在百度中搜索，或输入一个网址" value="" onblur autofocus>
         </div>
         <div class="button" id="btn">
             <button>搜索</button>
@@ -189,25 +189,22 @@
         }
 
         //监听用户键盘事件
-
-        function useKey(onkeypress) {
-            let key = onkeypress['key']
-            let ctrlKey = onkeypress['ctrlKey']
-
-            if (ctrlKey == true) {
-                var key1 = 'c' + key
-                window.open('http://' + userKbd[key1])
-            } else {
-                window.open('http://' + userKbd[key])
+        input.onblur = function() {
+            document.onkeypress = function useKey(onkeypress) {
+                let key = onkeypress['key']
+                let ctrlKey = onkeypress['ctrlKey']
+                if (ctrlKey == true) {
+                    var key1 = 'c' + key
+                    window.open('http://' + userKbd[key1])
+                } else if (key == 'Enter') {
+                    let userText = document.getElementById('input').value
+                    let url = 'http://www.baidu.com/s?wd=' + userText
+                    window.open(url)
+                } else {
+                    window.open('http://' + userKbd[key])
+                }
             }
         }
-
-        window.addEventListener("onload", document.onkeypress = useKey, false, console.log('aaa'));
-        input.addEventListener('click', function() {
-            console.log('ssss')
-            window.removeEventListener("onload", document.onkeypress = useKey, false)
-        })
-
 
         //获取input内文案并提交到百度搜索
         let btn = document.getElementById('btn')
