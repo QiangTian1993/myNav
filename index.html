@@ -189,7 +189,8 @@
         }
 
         //监听用户键盘事件
-        document.onkeypress = function(onkeypress) {
+
+        function useKey(onkeypress) {
             let key = onkeypress['key']
             let ctrlKey = onkeypress['ctrlKey']
 
@@ -200,6 +201,13 @@
                 window.open('http://' + userKbd[key])
             }
         }
+
+        window.addEventListener("onload", document.onkeypress = useKey, false, console.log('aaa'));
+        input.addEventListener('click', function() {
+            console.log('ssss')
+            window.removeEventListener("onload", document.onkeypress = useKey, false)
+        })
+
 
         //获取input内文案并提交到百度搜索
         let btn = document.getElementById('btn')
