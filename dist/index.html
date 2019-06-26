@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myNav</title>
+    <link rel="stylesheet" href="/style.78032849.css">
+    <script src="//at.alicdn.com/t/font_1255467_c8e0omgrdvw.js"></script>
+    <script src="/main.fb6bbcaf.js"></script>
+<script src="/style.78032849.js"></script></head>
+
+<body>
+    <!-- 搜索框 -->
+    <header>
+        <div class="inputBox">
+            <i>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-icon_baidulogo"></use>
+                </svg>
+            </i>
+            <input type="text" id="input" aceholder="在百度中搜索，或输入一个网址" value="" onblur="" autofocus="">
+        </div>
+        <div class="button" id="btn">
+            <button>搜索</button>
+            <div class="shadow"></div>
+        </div>
+    </header>
+    <!-- end -->
+    <!-- 导航 -->
+    <main id="mainInner">
+    </main>
+    <!-- end -->
+    <footer>
+        @qiang.tian
+    </footer>
+    <script>//创建标签函数
+function createTag(tagName) {
+  return document.createElement(tagName);
+}
+
+function imagesLink(dimain) {
+  var img = createTag('img');
+  img.src = 'http://' + dimain + '/favicon.ico';
+
+  img.onerror = function (sb) {
+    sb.target.src = './images/Dribbble.png';
+  };
+
+  return img;
+} //遍历网站类型
+
+
+for (index2 = 0; index2 < nav.length; index2 = index2 + 1) {
+  var div = createTag('div');
+  var titleBox = createTag('div');
+  var innerBox = createTag("div");
+  var titleInner = createTag('h1');
+  innerBox.className = 'inner clearfix';
+  mainInner.appendChild(div);
+  div.appendChild(titleBox);
+  div.appendChild(innerBox);
+  div.id = nav[index2];
+  titleBox.className = "title";
+  titleBox.appendChild(titleInner);
+  titleInner.textContent = nav[index2];
+
+  if (index2 == 0) {
+    for (index = 0; index < design.length; index = index + 1) {
+      var a = createTag('a');
+      innerBox.appendChild(a);
+      var h2inner = design[index]; //动态赋值
+
+      a.href = 'http://' + designWebsite[h2inner];
+      a.target = '_blank';
+      var innerMain = createTag('div');
+      innerMain.className = 'nav';
+      a.appendChild(innerMain);
+      var kbd = createTag('kbd');
+      innerMain.appendChild(kbd);
+      kbd.textContent = keyboard1[index];
+      var img = imagesLink(designWebsite[h2inner]);
+      innerMain.appendChild(img);
+      var text = createTag('div');
+      text.className = "text";
+      innerMain.appendChild(text);
+      var h1 = createTag('h1');
+      var h2 = createTag('h2');
+      text.appendChild(h1);
+      text.appendChild(h2);
+      h1.textContent = design[index];
+      h2.textContent = designIntroduce[h2inner]; // 获取网站logo
+      // img.src = 'http://' + website[h2inner] + ':8080' + '/favicon.ico'
+      // img.src = 'https://www.google.com/s2/favicons?domain=' + 'http://' + website[h2inner]
+      // img.src = 'https://favicon.link/v3/?url=' + website[h2inner]
+      // img.src = 'http://' + designWebsite[h2inner] + '/favicon.ico'
+    }
+  } else if (index2 == 1) {
+    for (index = 0; index < web.length; index = index + 1) {
+      var _a = createTag('a');
+
+      innerBox.appendChild(_a);
+      var _h2inner = web[index]; //动态赋值
+
+      _a.href = 'http://' + webWebsite[_h2inner];
+      _a.target = '_blank';
+
+      var _innerMain = createTag('div');
+
+      _innerMain.className = 'nav';
+
+      _a.appendChild(_innerMain);
+
+      var _kbd = createTag('kbd');
+
+      _innerMain.appendChild(_kbd);
+
+      _kbd.textContent = keyboard2[index];
+
+      var _img = imagesLink(webWebsite[_h2inner]);
+
+      _innerMain.appendChild(_img);
+
+      var _text = createTag('div');
+
+      _text.className = "text";
+
+      _innerMain.appendChild(_text);
+
+      var _h = createTag('h1');
+
+      var _h2 = createTag('h2');
+
+      _text.appendChild(_h);
+
+      _text.appendChild(_h2);
+
+      _h.textContent = web[index];
+      _h2.textContent = webIntroduce[_h2inner]; //获取网站logo
+      // img.src = 'http://' + website[h2inner] + ':8080' + '/favicon.ico'
+      // img.src = 'https://www.google.com/s2/favicons?domain=' + 'http://' + webWebsite[h2inner]
+      // img.src = 'https://favicon.link/v3/?url=' + webWebsite[h2inner]
+    }
+  } else if (index2 == 2) {
+    for (index = 0; index < other.length; index = index + 1) {
+      var _a2 = createTag('a');
+
+      innerBox.appendChild(_a2);
+      var _h2inner2 = other[index]; //动态赋值
+
+      _a2.href = 'http://' + otherWebsite[_h2inner2];
+      _a2.target = '_blank';
+
+      var _innerMain2 = createTag('div');
+
+      _innerMain2.className = 'nav';
+
+      _a2.appendChild(_innerMain2);
+
+      var _kbd2 = createTag('kbd');
+
+      _innerMain2.appendChild(_kbd2);
+
+      _kbd2.textContent = keyboard3[index];
+
+      var _img2 = imagesLink(otherWebsite[_h2inner2]);
+
+      _innerMain2.appendChild(_img2);
+
+      var _text2 = createTag('div');
+
+      _text2.className = "text";
+
+      _innerMain2.appendChild(_text2);
+
+      var _h3 = createTag('h1');
+
+      var _h4 = createTag('h2');
+
+      _text2.appendChild(_h3);
+
+      _text2.appendChild(_h4);
+
+      _h3.textContent = other[index];
+      _h4.textContent = otherIntroduce[_h2inner2]; //获取网站logo
+      // img.src = 'http://' + website[h2inner] + ':8080' + '/favicon.ico'
+      // img.src = 'https://www.google.com/s2/favicons?domain=' + 'http://' + webWebsite[h2inner]
+      // img.src = 'https://favicon.link/v3/?url=' + webWebsite[h2inner]
+    }
+  }
+} //监听用户键盘事件
+
+
+input.onblur = function () {
+  document.onkeypress = function useKey(onkeypress) {
+    var key = onkeypress['key'];
+    var ctrlKey = onkeypress['ctrlKey'];
+
+    if (ctrlKey == true) {
+      var key1 = 'c' + key;
+      window.open('http://' + userKbd[key1]);
+    } else if (key == 'Enter') {
+      var userText = document.getElementById('input').value;
+      var url = 'http://www.baidu.com/s?wd=' + userText;
+      window.open(url);
+    } else {
+      window.open('http://' + userKbd[key]);
+    }
+  };
+}; //获取input内文案并提交到百度搜索
+
+
+var btn = document.getElementById('btn');
+
+btn.onclick = function () {
+  var userText = document.getElementById('input').value;
+  var url = 'http://www.baidu.com/s?wd=' + userText;
+  window.open(url);
+};</script>
+</body>
+
+</html>

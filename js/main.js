@@ -3,7 +3,7 @@
 
  //存放网址名称
  let design = ["Dribbble", "Behance", "UI中国", "站酷", "优设网", "花瓣网"]
- let web = ["阮一峰", "MDN", "张鑫旭", "Codrops", "CSS-TRICKS", "JavaScript标准参考", "掘金", "github.com"]
+ let web = ["阮一峰", "MDN", "张鑫旭", "Codrops", "CSS-TRICKS", "JavaScript标准参考", "掘金", "github"]
  let other = ["bilibili", "腾讯视频", "爱奇艺", "喜马拉雅", "懒人听书", "荔枝FM"]
 
  //存放网址
@@ -27,7 +27,7 @@
      'CSS-TRICKS': 'css-tricks.com',
      'JavaScript标准参考': 'javascript.ruanyifeng.com/',
      '掘金': 'juejin.im/',
-     'github.com': 'github.com'
+     'github': 'github.com'
  }
 
  //其他
@@ -139,4 +139,195 @@
      'cx': 'ximalaya.com',
      'cl': 'www.lrts.me',
      '¬': 'lizhi.fm'
+ }
+
+
+ //创建标签函数
+ function createTag(tagName) {
+     return document.createElement(tagName)
+ }
+
+ function imagesLink(dimain) {
+     let img = createTag('img')
+     img.src = 'http://' + dimain + '/favicon.ico'
+     img.onerror = function(sb) {
+         sb.target.src = './images/Dribbble.png'
+     }
+     return img
+ }
+
+ //遍历网站类型
+ for (index2 = 0; index2 < nav.length; index2 = index2 + 1) {
+
+     let div = createTag('div')
+     let titleBox = createTag('div')
+     let innerBox = createTag("div")
+     let titleInner = createTag('h1')
+
+     innerBox.className = 'inner clearfix'
+
+     mainInner.appendChild(div)
+
+     div.appendChild(titleBox)
+     div.appendChild(innerBox)
+     div.id = nav[index2]
+
+     titleBox.className = "title"
+     titleBox.appendChild(titleInner)
+     titleInner.textContent = nav[index2]
+
+     if (index2 == 0) {
+         for (index = 0; index < design.length; index = index + 1) {
+             let a = createTag('a')
+             innerBox.appendChild(a)
+             let h2inner = design[index]
+                 //动态赋值
+             a.href = 'http://' + designWebsite[h2inner]
+             a.target = '_blank'
+
+             let innerMain = createTag('div')
+             innerMain.className = 'nav'
+             a.appendChild(innerMain)
+
+             let kbd = createTag('kbd')
+             innerMain.appendChild(kbd)
+             kbd.textContent = keyboard1[index]
+
+             let img = imagesLink(designWebsite[h2inner])
+             innerMain.appendChild(img)
+
+
+             let text = createTag('div')
+             text.className = "text"
+             innerMain.appendChild(text)
+
+             let h1 = createTag('h1')
+             let h2 = createTag('h2')
+             text.appendChild(h1)
+             text.appendChild(h2)
+
+             h1.textContent = design[index]
+             h2.textContent = designIntroduce[h2inner]
+
+             // 获取网站logo
+             // img.src = 'http://' + website[h2inner] + ':8080' + '/favicon.ico'
+             // img.src = 'https://www.google.com/s2/favicons?domain=' + 'http://' + website[h2inner]
+             // img.src = 'https://favicon.link/v3/?url=' + website[h2inner]
+             // img.src = 'http://' + designWebsite[h2inner] + '/favicon.ico'
+         }
+
+     } else if (index2 == 1) {
+         for (index = 0; index < web.length; index = index + 1) {
+             let a = createTag('a')
+             innerBox.appendChild(a)
+             let h2inner = web[index]
+                 //动态赋值
+             a.href = 'http://' + webWebsite[h2inner]
+             a.target = '_blank'
+
+             let innerMain = createTag('div')
+             innerMain.className = 'nav'
+             a.appendChild(innerMain)
+
+             let kbd = createTag('kbd')
+             innerMain.appendChild(kbd)
+             kbd.textContent = keyboard2[index]
+
+
+             let img = imagesLink(webWebsite[h2inner])
+             innerMain.appendChild(img)
+
+             let text = createTag('div')
+             text.className = "text"
+             innerMain.appendChild(text)
+
+             let h1 = createTag('h1')
+             let h2 = createTag('h2')
+             text.appendChild(h1)
+             text.appendChild(h2)
+
+             h1.textContent = web[index]
+             h2.textContent = webIntroduce[h2inner]
+
+             //获取网站logo
+             // img.src = 'http://' + website[h2inner] + ':8080' + '/favicon.ico'
+             // img.src = 'https://www.google.com/s2/favicons?domain=' + 'http://' + webWebsite[h2inner]
+             // img.src = 'https://favicon.link/v3/?url=' + webWebsite[h2inner]
+         }
+     } else if (index2 == 2) {
+         for (index = 0; index < other.length; index = index + 1) {
+             let a = createTag('a')
+             innerBox.appendChild(a)
+             let h2inner = other[index]
+                 //动态赋值
+             a.href = 'http://' + otherWebsite[h2inner]
+             a.target = '_blank'
+
+             let innerMain = createTag('div')
+             innerMain.className = 'nav'
+             a.appendChild(innerMain)
+
+             let kbd = createTag('kbd')
+             innerMain.appendChild(kbd)
+             kbd.textContent = keyboard3[index]
+
+             let img = imagesLink(otherWebsite[h2inner])
+             innerMain.appendChild(img)
+
+             let text = createTag('div')
+             text.className = "text"
+             innerMain.appendChild(text)
+
+             let h1 = createTag('h1')
+             let h2 = createTag('h2')
+             text.appendChild(h1)
+             text.appendChild(h2)
+
+             h1.textContent = other[index]
+             h2.textContent = otherIntroduce[h2inner]
+
+             //获取网站logo
+             // img.src = 'http://' + website[h2inner] + ':8080' + '/favicon.ico'
+             // img.src = 'https://www.google.com/s2/favicons?domain=' + 'http://' + webWebsite[h2inner]
+             // img.src = 'https://favicon.link/v3/?url=' + webWebsite[h2inner]
+         }
+     }
+ }
+
+ //监听用户键盘事件
+
+ //键盘监听事件开关，默认开启
+ let keySwitch = true
+
+ input.onfocus = function() {
+     //当搜索框获焦时关闭键盘监听事件
+     keySwitch = !keySwitch
+     document.onkeypress = function useKey(onkeypress) {}
+ }
+ if (keySwitch) { //当开关的值为true时打开键盘监听事件
+     input.onblur = function() {
+         document.onkeypress = function useKey(onkeypress) {
+             let key = onkeypress['key']
+             let ctrlKey = onkeypress['ctrlKey']
+             if (ctrlKey == true) {
+                 var key1 = 'c' + key
+                 window.open('http://' + userKbd[key1])
+             } else if (key == 'Enter') {
+                 let userText = document.getElementById('input').value
+                 let url = 'http://www.baidu.com/s?wd=' + userText
+                 window.open(url)
+             } else {
+                 window.open('http://' + userKbd[key])
+             }
+         }
+     }
+ }
+
+
+ //获取input内文案并提交到百度搜索
+ let btn = document.getElementById('btn')
+ btn.onclick = function() {
+     let userText = document.getElementById('input').value
+     let url = 'http://www.baidu.com/s?wd=' + userText
+     window.open(url)
  }
